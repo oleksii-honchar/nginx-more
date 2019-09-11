@@ -1,0 +1,44 @@
+{
+  "name": "nginx-more",
+  "version": "1.0.3",
+  "description": "NGINX more",
+  "scripts": {
+    "commit": "npx git-cz",
+    "docker:build": "bash ./scripts/build.sh",
+    "docker:push": "run-s docker:push:current docker:push:latest",
+    "docker:push:current": "bash ./devops/docker/scripts/push-image.sh",
+    "docker:push:latest": "bash ./devops/docker/scripts/push-latest-image.sh",
+    "docker:up:prod:loc": "bash ./devops/ci/scripts/up.prod.loc.sh"
+  },
+  "author": "Oleksii Honchar",
+  "license": "MIT",
+  "private": false,
+  "homepage": "https://github.com/oleksii-honchar/nginx-more#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oleksii-honchar/nginx-more.git"
+  },
+  "dependencies": {
+    "npm-run-all": "4.1.5"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "8.1.0",
+    "@commitlint/config-conventional": "8.1.0",
+    "commitizen": "4.0.3",
+    "husky": "3.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "git add .",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS --config=./configs/commitlint.config.js"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/oleksii-honchar/nginx-more/issues"
+  }
+}

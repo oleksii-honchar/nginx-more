@@ -1,0 +1,20 @@
+# User-agent: *
+# Disallow: /
+
+User-agent: *
+Disallow: /wp-content/plugins/
+Disallow: /cgi-bin
+Disallow: /wp-content/cache
+Disallow: /search/
+Disallow: /ppc/
+Disallow: /email-signature/
+Disallow: /all-teams/
+Disallow: /assets/*
+Disallow: /?s
+Disallow: /?*
+Disallow: /sv
+Disallow: /sv/*
+Disallow: */category/*
+Disallow: /wp-content/uploads/whitepapers/
+Disallow: */attachment/*
+Disallow: *.pdf

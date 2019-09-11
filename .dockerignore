@@ -1,0 +1,7 @@
+project.env
+.git
+static/
+config/
+docs/
+node_modules/
+scripts/
