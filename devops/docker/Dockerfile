@@ -4,7 +4,7 @@ FROM ubuntu:18.04 AS build
 ENV TZ=Europe/Kiev
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ENV DEBIAN_FRONTEND=noninteractive
-ENV NGINX_VERSION="nginx-1.13.6"
+ENV NGINX_VERSION="nginx-1.16.1"
 
 EXPOSE 80
 CMD ["/usr/sbin/nginx"]
