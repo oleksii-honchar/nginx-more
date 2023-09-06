@@ -4,8 +4,8 @@ more NGINX feature with plugins:
 
 # Dependencies
 
-- nginx@1.16.1
+- nginx@1.25.2
     - pcre@8.42
     - zlib@1.2.11
-    - openssl@1.1.0h
-- headers-more-nginx-module@0.33
+    - openssl@3.0.7
+- headers-more-nginx-module@0.34
