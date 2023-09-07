@@ -61,7 +61,7 @@ build: check-project-env-vars
 		--platform linux/arm64 .
 
 tag-latest: check-project-env-vars
-	@docker tag ${IMAGE_NAME}:${IMAGE_TAG} tuiteraz/squid:latest
+	@docker tag ${IMAGE_NAME}:${IMAGE_TAG} ${IMAGE_NAME}:latest
 
 push: check-project-env-vars
 	@docker push docker.io/${IMAGE_NAME}:${IMAGE_TAG}
