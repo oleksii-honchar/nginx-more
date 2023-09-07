@@ -8,10 +8,10 @@ BOLD_ON=\033[1m
 BOLD_OFF=\033[21m
 CLEAR=\033[2J
 
-include ./configs/envs/deployment.env
+include ./devops/envs/deployment.env
 include project.env
 export $(shell sed 's/=.*//' project.env)
-export $(shell sed 's/=.*//' ./configs/envs/deployment.env)
+export $(shell sed 's/=.*//' ./devops/envs/deployment.env)
 
 .PHONY: help
 
