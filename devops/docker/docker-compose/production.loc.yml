@@ -1,9 +1,0 @@
-version: "3.7"
-services:
-  jaba:
-    container_name: nginx-more
-    image: tuiteraz/nginx-more:latest
-    ports
-    - "80:80"
-    networks:
-    - default

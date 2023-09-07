@@ -1,0 +1,38 @@
+#--- BUILD ---
+FROM alpine:latest
+
+ENV TZ=Europe/Madrid
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+ENV DEBIAN_FRONTEND=noninteractive
+ARG NGINX_VERSION
+
+RUN mkdir -p /usr/src/nginx
+WORKDIR /usr/src/nginx
+
+COPY ./nginx/0-install-deps.alpine.sh ./0-install-deps.alpine.sh
+COPY ./nginx/1-build-nginx.alpine.sh ./1-build-nginx.alpine.sh
+#COPY ./nginx/2-install-nginx.alpine.sh ./2-install-nginx.alpine.sh
+RUN rm -rf /etc/nginx & mkdir -p /etc/nginx
+COPY ./nginx/config /etc/nginx
+
+RUN addgroup --system nginx && adduser --system --no-create-home --ingroup nginx nginx
+
+#RUN bash ./0-install-deps.sh && bash ./1-build.sh && bash ./2-install.sh
+RUN sh ./0-install-deps.alpine.sh
+RUN sh ./1-build-nginx.alpine.sh
+#RUN sh ./2-install-nginx.alpine.sh
+
+#--- FINAL IMAGE ---
+#FROM alpine:latest
+#
+#RUN apk add --no-cache libxml2 libxslt
+#
+#COPY --from=build /etc/nginx /etc/nginx
+#COPY --from=build /usr/sbin/nginx /usr/sbin/nginx
+#COPY --from=build /usr/lib/nginx/modules /usr/lib/nginx/modules
+#
+#EXPOSE 80
+
+#CMD ["nginx", "-g", "daemon off;"]
+#CMD ["/usr/sbin/nginx"]
+CMD tail -f /dev/null # debug
