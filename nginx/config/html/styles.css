@@ -1,3 +1,18 @@
+body, html {
+    margin: 0 auto;
+    height: 100%;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+.content {
+    width: 35em;
+    margin: 0 auto;
+    height: 50%;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
 .example-box {
     background-image: linear-gradient(to bottom right, rgba(105, 247, 255, 0.99), #d0b3ff);
     width: 100%;
