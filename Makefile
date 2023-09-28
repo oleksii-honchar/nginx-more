@@ -8,10 +8,10 @@ BOLD_ON=\033[1m
 BOLD_OFF=\033[21m
 CLEAR=\033[2J
 
-include ./devops/envs/deployment.env
-include project.env
-export $(shell sed 's/=.*//' project.env)
-export $(shell sed 's/=.*//' ./devops/envs/deployment.env)
+include ./.devops/envs/deployment.env
+export $(shell sed 's/=.*//' ./.devops/envs/deployment.env)
+
+export LATEST_VERSION=$(shell cat ./latest-version.txt)
 
 .PHONY: help
 
@@ -22,7 +22,7 @@ help:
 
 .ONESHELL:
 check-project-env-vars:
-	@bash ./devops/local/scripts/check-project-env-vars.sh
+	@bash ./.devops/local/scripts/check-project-env-vars.sh
 
 logs: dockerComposeFile = ./docker-compose.yaml
 logs: ## docker logs
@@ -33,16 +33,16 @@ log: ## docker log for svc=<docker service name>
 	@docker compose -f $(dockerComposeFile) logs --follow ${svc}
 
 up: dockerComposeFile = ./docker-compose.yaml
-up: check-project-env-vars ## docker up, or svc=<svc-name>
+up:  ## docker up, or svc=<svc-name>
 	@docker compose -f $(dockerComposeFile) up --build --remove-orphans -d ${svc}
 
 down: dockerComposeFile = ./docker-compose.yaml
-down: check-project-env-vars ## docker down, or svc=<svc-name>
+down:  ## docker down, or svc=<svc-name>
 	@docker compose -f $(dockerComposeFile) down ${svc}
 
 .ONESHELL:
 restart: dockerComposeFile = ./docker-compose.yaml
-restart: check-project-env-vars ## restart all
+restart:  ## restart all
 	@docker compose -f $(dockerComposeFile) down
 	@docker compose -f $(dockerComposeFile) up --build --remove-orphans -d
 	@docker compose -f $(dockerComposeFile) logs --follow
@@ -54,15 +54,15 @@ exec-sh: ## get shell for svc=<svc-name> container
 	@docker exec -it ${svc} sh
 
 build: dockerFile = ./Dockerfile
-build: check-project-env-vars
+build: 
 	@docker build --force-rm=true --load \
-		-f $(dockerFile) -t ${IMAGE_NAME}:${IMAGE_TAG} \
+		-f $(dockerFile) -t ${IMAGE_NAME}:$(LATEST_VERSION) \
 		--build-arg NGINX_VERSION=${NGINX_VERSION} \
 		--platform linux/arm64 .
 
-tag-latest: check-project-env-vars
-	@docker tag ${IMAGE_NAME}:${IMAGE_TAG} ${IMAGE_NAME}:latest
+tag-latest:
+	@docker tag ${IMAGE_NAME}:$(LATEST_VERSION) ${IMAGE_NAME}:latest
 
-push: check-project-env-vars
-	@docker push docker.io/${IMAGE_NAME}:${IMAGE_TAG}
+push: 
+	@docker push docker.io/${IMAGE_NAME}:$(LATEST_VERSION)
 	@docker push docker.io/${IMAGE_NAME}:latest

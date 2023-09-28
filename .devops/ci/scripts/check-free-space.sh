@@ -6,6 +6,6 @@ danglingImgCount="$(docker images -f "dangling=true" -q | wc -l)"
 
 echo "Space used $spaceUsedPerc% by $dockerImgCount docker images ($danglingImgCount dangling)"
 if [ $spaceUsedPerc -ge 50 ] || [ $dockerImgCount -ge 30 ] || [ $danglingImgCount -ge 10 ]; then
-    bash "./devops/docker/scripts/soft-cleanup.sh"
+    bash "./.devops/docker/scripts/soft-cleanup.sh"
 fi
 

@@ -9,7 +9,7 @@ NC='\033[0m' # No Color
 BUMP="$(echo "$1" | tr '[:upper:]' '[:lower:]')"
 
 source ./configs/deployment.env
-source ./devops/ci/scripts/get-latest-version.sh
+source ./.devops/ci/scripts/get-latest-version.sh
 
 if [ "$BUMP" != "major" ] && [ "$BUMP" != "minor" ] && [ "$BUMP" != "patch" ]; then
     echo "ERROR: first param should be = major|minor|patch";
@@ -20,7 +20,7 @@ printf "Gonna bump version changes as ${LBLUE}[$BUMP]${NC} for [$VERSION]\n";
 
 printf "Bumping version...\n";
 
-export VERSION=$(./devops/ci/scripts/semver.sh bump $BUMP $VERSION)
+export VERSION=$(./.devops/ci/scripts/semver.sh bump $BUMP $VERSION)
 
 jq '.version=env.VERSION' ./package.json > /tmp/tmp.$$.json && mv /tmp/tmp.$$.json ./package.json
 

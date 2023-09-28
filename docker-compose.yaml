@@ -2,16 +2,17 @@ version: "3.8"
 
 services:
   nginx-more:
-    env_file:
-      - project.env
+    environment:
+    - TZ=Europe/Madrid
     container_name: ${CONTAINER_NAME}
-    image: ${IMAGE_NAME}:${IMAGE_TAG}
+    image: ${IMAGE_NAME}:${LATEST_VERSION}
     restart: unless-stopped
     ports:
       - 80:80
       - 443:443
     volumes:
       - ./nginx/config:/etc/nginx/
+      - /etc/localtime:/etc/localtime:ro
     logging:
       driver: "json-file"
       options:

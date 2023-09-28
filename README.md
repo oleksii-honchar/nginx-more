@@ -35,3 +35,11 @@ To build image:
   ```
 
 Check `Makefile` for more useful targets
+
+## How to deploy manually
+
+- before commit/merge changes to `main`, bump `latest-version.txt` version and describe changes in `CHANGELOG.md`
+- commit/merge changes to main
+- create tag = `latest-version.txt`, e.g. `v0.3.0`
+- `git push --tags`
+- build & push image: `make build && make push`

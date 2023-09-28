@@ -3,7 +3,7 @@ set -e
 
 cd "nginx-$NGINX_VERSION/"
 
-# Here we assume you would install your nginx under /etc/nginx/.
+# Here we assume you would put your nginx config in /etc/nginx/
 ./configure --prefix=/etc/nginx \
     --add-module=/usr/src/nginx/modules/headers-more-nginx \
     --sbin-path=/usr/sbin/nginx \

@@ -2,10 +2,8 @@ version: "3.8"
 
 services:
   nginx-more:
-    env_file:
-      - ../../project.env
     container_name: rnd-multy-${CONTAINER_NAME}
-    image: ${IMAGE_NAME}:${IMAGE_TAG}
+    image: ${IMAGE_NAME}:${LATEST_VERSION}
     restart: unless-stopped
     ports:
       - 80:80

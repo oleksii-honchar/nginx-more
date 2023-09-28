@@ -4,7 +4,7 @@ set -e
 apk update && apk upgrade && apk add --no-cache \
   openssl \
   perl perl-dev gd-dev geoip-dev libxml2-dev libxslt-dev \
-  build-base pcre-dev zlib-dev openssl-dev wget curl
+  build-base pcre-dev zlib-dev openssl-dev wget curl tzdata
 
 mkdir -p modules/headers-more-nginx && wget https://github.com/openresty/headers-more-nginx-module/archive/refs/tags/v0.34.tar.gz && cd modules/headers-more-nginx && tar xzvf ../../v0.34.tar.gz --strip-components=1 && cd ../..
 

@@ -8,10 +8,12 @@ BOLD_ON=\033[1m
 BOLD_OFF=\033[21m
 CLEAR=\033[2J
 
-include ../../devops/envs/deployment.env
+include ../../.devops/envs/deployment.env
 include ../../project.env
 export $(shell sed 's/=.*//' ../../project.env)
-export $(shell sed 's/=.*//' ../../devops/envs/deployment.env)
+export $(shell sed 's/=.*//' ../../.devops/envs/deployment.env)
+LATEST_VERSION := $(shell cat ../latest-version.txt)
+export LATEST_VERSION=$(LATEST_VERSION)
 
 .PHONY: help
 
@@ -41,4 +43,4 @@ exec-sh: ## get shell for svc=<svc-name> container
 	@docker exec -it ${svc} sh
 
 test-nginx-config: ## get shell for svc=<svc-name> container
-	@docker run -it ${IMAGE_NAME}:${IMAGE_TAG} nginx -t
+	@docker run -it ${IMAGE_NAME}:$(LATEST_VERSION) nginx -t

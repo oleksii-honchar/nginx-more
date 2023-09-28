@@ -1,8 +1,6 @@
 #--- BUILD ---
 FROM alpine:latest AS build
 
-ENV TZ=Europe/Madrid
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ARG NGINX_VERSION
 
 RUN mkdir -p /usr/src/nginx
