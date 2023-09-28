@@ -15,7 +15,7 @@ RUN sh ./0-install-deps.alpine.sh && sh ./1-build-nginx.alpine.sh
 #--- FINAL IMAGE ---
 FROM alpine:latest
 
-RUN apk add --no-cache openssl
+RUN apk add --no-cache openssl tzdata
 
 RUN addgroup --system nginx && adduser --system --no-create-home --ingroup nginx nginx
 
