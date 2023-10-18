@@ -21,6 +21,7 @@ RUN addgroup --system nginx && adduser --system --no-create-home --ingroup nginx
 
 COPY --from=build /etc/nginx /etc/nginx
 COPY --from=build /usr/sbin/nginx /usr/sbin/nginx
+RUN rm -rf /etc/nginx
 COPY ./nginx/config /etc/nginx
 
 COPY ./nginx/2-postinstall-nginx.alpine.sh /var/tmp/2-postinstall-nginx.alpine.sh

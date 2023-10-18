@@ -54,15 +54,15 @@ exec-sh: ## get shell for svc=<svc-name> container
 	@docker exec -it ${svc} sh
 
 build: dockerFile = ./Dockerfile
-build: 
+build: ## build docker image
 	@docker build --force-rm=true --load \
 		-f $(dockerFile) -t ${IMAGE_NAME}:$(LATEST_VERSION) \
 		--build-arg NGINX_VERSION=${NGINX_VERSION} \
 		--platform linux/arm64 .
 
-tag-latest:
+tag-latest: ## tag latest
 	@docker tag ${IMAGE_NAME}:$(LATEST_VERSION) ${IMAGE_NAME}:latest
 
-push: 
+push: ## push images to registry
 	@docker push docker.io/${IMAGE_NAME}:$(LATEST_VERSION)
 	@docker push docker.io/${IMAGE_NAME}:latest
