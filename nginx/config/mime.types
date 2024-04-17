@@ -4,7 +4,7 @@ types {
     text/xml                              xml;
     image/gif                             gif;
     image/jpeg                            jpeg jpg;
-    application/javascript                js;
+    application/javascript                js mjs;
     application/atom+xml                  atom;
     application/rss+xml                   rss;
 
@@ -26,6 +26,7 @@ types {
     application/font-woff                 woff;
     application/java-archive              jar war ear;
     application/json                      json;
+    application/x-yaml                    yaml;
     application/mac-binhex40              hqx;
     application/msword                    doc;
     application/pdf                       pdf;

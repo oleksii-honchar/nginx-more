@@ -5,6 +5,7 @@ cd "nginx-$NGINX_VERSION/"
 
 # Here we assume you would put your nginx config in /etc/nginx/
 ./configure --prefix=/etc/nginx \
+    --add-module=/usr/src/nginx/modules/nginx-module-vts \
     --add-module=/usr/src/nginx/modules/headers-more-nginx \
     --sbin-path=/usr/sbin/nginx \
     --modules-path=/usr/lib/nginx/modules \
@@ -37,7 +38,6 @@ cd "nginx-$NGINX_VERSION/"
     --with-http_secure_link_module \
     --with-http_degradation_module \
     --with-http_slice_module \
-    --with-http_stub_status_module \
     --with-http_perl_module=dynamic \
     --with-perl_modules_path=/usr/share/perl5 \
     --with-perl=/usr/bin/perl \
