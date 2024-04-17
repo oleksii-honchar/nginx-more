@@ -37,7 +37,6 @@ cd "nginx-$NGINX_VERSION/"
     --with-http_secure_link_module \
     --with-http_degradation_module \
     --with-http_slice_module \
-    --with-http_stub_status_module \
     --with-http_perl_module=dynamic \
     --with-perl_modules_path=/usr/share/perl5 \
     --with-perl=/usr/bin/perl \
