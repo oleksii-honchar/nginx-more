@@ -1,3 +1,11 @@
+# Changelog
+
+## 1.27.0-0
+
+- [+] updated dependencies:
+  - nginx: 1.25.5 → 1.27.0
+- [+] added json log format for easier integration with Loki
+
 ## 1.25.5-1
 
 - [+] updated dependencies:

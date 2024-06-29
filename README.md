@@ -12,9 +12,9 @@ Check [0-install-deps.alpine.sh](nginx/0-install-deps.alpine.sh) for build optio
 # Dependencies
 
 - nginx@1.25.5
-    - pcre2@2.10.43
-    - zlib@1.3.1
-    - openssl@3.0.7 (alpine)
+  - pcre2@2.10.43
+  - zlib@1.3.1
+  - openssl@3.0.7 (alpine)
 - [headers-more-nginx-module](https://github.com/openresty/headers-more-nginx-module)@0.37
 - [nginx-module-vts](https://github.com/vozlt/nginx-module-vts)@0.2.2
 
@@ -27,14 +27,15 @@ Current build contains following configuration options ready to use:
 - default locations
 - common proxy-pass
 
-To start using docker-compose just execute:
+To start `nginx-more`:
 
   ```bash
   make up
+  make logs
   ```
 
 Then open `localhost:80` in browser to check it's working.
-To build image:
+To build an image:
 
 ```bash
 make build
