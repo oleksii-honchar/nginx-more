@@ -11,7 +11,7 @@ Check [0-install-deps.alpine.sh](nginx/0-install-deps.alpine.sh) for build optio
 
 # Dependencies
 
-- nginx@1.25.5
+- nginx@1.27.0
   - pcre2@2.10.43
   - zlib@1.3.1
   - openssl@3.0.7 (alpine)
@@ -31,10 +31,11 @@ To start `nginx-more`:
 
   ```bash
   make up
-  make logs
+  make logs # in json log format for easier integration with log processing backend
   ```
 
 Then open `localhost:80` in browser to check it's working.
+
 To build an image:
 
 ```bash
