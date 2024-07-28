@@ -13,6 +13,10 @@ NGINX_VERSION := $(shell yq -r '.nginxVersion' project.yaml)
 IMAGE_NAME := $(shell yq -r '.name' project.yaml)
 IMAGE_VERSION := $(NGINX_VERSION)-$(PROJECT_VERSION)
 
+ifneq (,$(wildcard ./.env))
+	include ./.env
+endif
+
 .PHONY: help
 
 help:
@@ -86,3 +90,10 @@ docker-tag-latest: ## tag latest
 docker-push: ## push images to registry
 	@docker push docker.io/${IMAGE_NAME}:$(IMAGE_VERSION)
 	@docker push docker.io/${IMAGE_NAME}:latest
+
+release-please-debug: ## debug release-please config
+	@release-please release-pr \
+		--token=${GITHUB_TOKEN} \
+		--repo-url=oleksii-honchar/nginx-more \
+		--debug \
+		--dry-run
