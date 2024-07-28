@@ -1,0 +1,4 @@
+name: tuiteraz/nginx-more
+containerName: nginx-more
+nginxVersion: 1.27.0
+version: 1.0.0 # x-release-please-version

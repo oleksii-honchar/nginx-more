@@ -8,9 +8,9 @@ BOLD_ON=\033[1m
 BOLD_OFF=\033[21m
 CLEAR=\033[2J
 
-PROJECT_VERSION := $(shell jq -r '.version' project.json)
-NGINX_VERSION := $(shell jq -r '.nginxVersion' project.json)
-IMAGE_NAME := $(shell jq -r '.name' project.json)
+PROJECT_VERSION := $(shell yq -r '.version' project.yaml)
+NGINX_VERSION := $(shell yq -r '.nginxVersion' project.yaml)
+IMAGE_NAME := $(shell yq -r '.name' project.yaml)
 IMAGE_VERSION := $(NGINX_VERSION)-$(PROJECT_VERSION)
 
 .PHONY: help
