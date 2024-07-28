@@ -1,10 +1,17 @@
 {
   ".": "1.0.0",
-  "extra-files": [
-    {
-      "type": "yaml",
-      "path": "project.yaml",
-      "jsonpath": "$.version"
+  "packages": {
+    ".": {
+      "package-name": "nginx-more",
+      "release-type": "simple",
+      "version-file": "project.yaml",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "project.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
     }
-  ]
+  }
 }
