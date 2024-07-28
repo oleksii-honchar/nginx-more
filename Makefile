@@ -97,3 +97,9 @@ release-please-debug: ## debug release-please config
 		--repo-url=oleksii-honchar/nginx-more \
 		--debug \
 		--dry-run
+
+release-please-snapshot: ## debug release-please config
+	@release-please release-pr \
+		--repo-url=oleksii-honchar/nginx-more \
+		--token=${GITHUB_TOKEN} \
+		--snapshot --dry-run
