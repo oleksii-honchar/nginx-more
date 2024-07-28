@@ -1,4 +1,4 @@
 name: tuiteraz/nginx-more
 containerName: nginx-more
 nginxVersion: 1.27.0
-version: 1.0.1
+version: 1.0.3
