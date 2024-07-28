@@ -3,13 +3,7 @@
   "packages": {
     ".": {
       "release-type": "simple",
-      "version-file": "project.json",
       "extra-files": [
-        {
-          "type": "yaml",
-          "path": "project.yaml",
-          "jsonpath": "$.version"
-        },
         {
           "type": "json",
           "path": "project.json",
