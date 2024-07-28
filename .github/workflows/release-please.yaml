@@ -17,6 +17,3 @@ jobs:
         uses: googleapis/release-please-action@v4
         with:
           token: ${{ secrets.PERSONAL_GH_TOKEN }}
-          release-type: simple
-          extra-files: |
-            project.yaml

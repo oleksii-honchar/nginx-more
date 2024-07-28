@@ -1,1 +1,16 @@
-{}
+{
+  "release-type": "node",
+  "packages": {
+    ".": {
+      "package-name": "tuiteraz/nginx-more",
+      "version-file": "project.yaml",
+      "extra-files": [
+        {
+          "type": "plain-text",
+          "path": "project.yaml",
+          "updater": "yaml"
+        }
+      ]
+    }
+  }
+}
