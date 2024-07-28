@@ -3,12 +3,12 @@
   "packages": {
     ".": {
       "package-name": "tuiteraz/nginx-more",
-      "version-file": "project.yaml",
+      "version-file": "project.json",
       "extra-files": [
         {
-          "type": "yaml",
-          "path": "project.yaml",
-          "updater": "yaml"
+          "type": "json",
+          "path": "project.json",
+          "updater": "json"
         }
       ]
     }
