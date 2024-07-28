@@ -2,13 +2,11 @@
   "release-type": "simple",
   "packages": {
     ".": {
-      "package-name": "tuiteraz/nginx-more",
       "extra-files": [
         {
           "type": "yaml",
           "path": "project.yaml",
-          "jsonpath": "$.version",
-          "updater": "yaml"
+          "jsonpath": "$.version"
         }
       ]
     }
