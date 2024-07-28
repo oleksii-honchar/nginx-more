@@ -5,6 +5,7 @@
 .npmrc
 .vscode
 .history
+.env
 *.crt
 *.key
 npm-debug.log
