@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/oleksii-honchar/nginx-more/compare/v1.0.4...v1.0.5) (2024-07-28)
+
+
+### Bug Fixes
+
+* add latest tag ([#25](https://github.com/oleksii-honchar/nginx-more/issues/25)) ([fa2289c](https://github.com/oleksii-honchar/nginx-more/commit/fa2289ce553b6a21a726ecbab0f6d7c1a1aad814))
+
 ## [1.0.4](https://github.com/oleksii-honchar/nginx-more/compare/v1.0.3...v1.0.4) (2024-07-28)
 
 
