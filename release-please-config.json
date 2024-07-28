@@ -6,7 +6,7 @@
       "version-file": "project.yaml",
       "extra-files": [
         {
-          "type": "plain-text",
+          "type": "yaml",
           "path": "project.yaml",
           "updater": "yaml"
         }
