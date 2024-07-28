@@ -1,5 +1,5 @@
 {
-  "release-type": "node",
+  "release-type": "simple",
   "packages": {
     ".": {
       "package-name": "tuiteraz/nginx-more",
@@ -7,7 +7,7 @@
       "extra-files": [
         {
           "type": "yaml",
-          "path": "project.yaml",
+          "path": "./project.yaml",
           "updater": "yaml"
         }
       ]
