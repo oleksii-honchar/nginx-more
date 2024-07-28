@@ -61,5 +61,5 @@ cd "nginx-$NGINX_VERSION/"
     --with-openssl-opt=no-nextprotoneg \
     --with-debug
 
-make
-make install
+CC=clang make
+CC=clang make install
