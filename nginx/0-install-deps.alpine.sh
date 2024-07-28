@@ -4,7 +4,7 @@ set -e
 apk update && apk upgrade && apk add --no-cache \
   openssl \
   perl perl-dev gd-dev geoip-dev libxml2-dev libxslt-dev \
-  build-base pcre-dev zlib-dev openssl-dev wget curl
+  build-base pcre-dev zlib-dev openssl-dev wget curl clang
 
 mkdir -p modules/nginx-module-vts && wget https://github.com/vozlt/nginx-module-vts/archive/refs/tags/v0.2.2.tar.gz && cd modules/nginx-module-vts && tar xzvf ../../v0.2.2.tar.gz --strip-components=1 && cd ../..
 

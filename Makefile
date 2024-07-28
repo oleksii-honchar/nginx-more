@@ -8,10 +8,10 @@ BOLD_ON=\033[1m
 BOLD_OFF=\033[21m
 CLEAR=\033[2J
 
-include ./.devops/envs/deployment.env
-export $(shell sed 's/=.*//' ./.devops/envs/deployment.env)
-
-export LATEST_VERSION=$(shell cat ./latest-version.txt)
+PROJECT_VERSION := $(shell jq -r '.version' project.json)
+NGINX_VERSION := $(shell jq -r '.nginxVersion' project.json)
+IMAGE_NAME := $(shell jq -r '.name' project.json)
+IMAGE_VERSION := $(NGINX_VERSION)-$(PROJECT_VERSION)
 
 .PHONY: help
 
@@ -53,16 +53,36 @@ exec-bash: ## get shell for svc=<svc-name> container
 exec-sh: ## get shell for svc=<svc-name> container
 	@docker exec -it ${svc} sh
 
-build: dockerFile = ./Dockerfile
-build: ## build docker image
+# used for multi-platform builds
+create-docker-container-builder:
+	@docker buildx create --use --name docker-container --driver docker-container
+	@docker buildx inspect docker-container --bootstrap
+
+docker-build-n-push: dockerFile = ./Dockerfile
+docker-build-n-push: ## build docker image for linux/amd64,linux/arm64
+	@docker buildx build --builder docker-container \
+		--platform linux/amd64,linux/arm64 \
+		--force-rm=true --push \
+		-f $(dockerFile) -t ${IMAGE_NAME}:$(IMAGE_VERSION) \
+		--build-arg NGINX_VERSION=${NGINX_VERSION} \
+		.
+
+docker-build: dockerFile = ./Dockerfile
+docker-build: ## build docker image
 	@docker build --force-rm=true --load \
-		-f $(dockerFile) -t ${IMAGE_NAME}:$(LATEST_VERSION) \
+		-f $(dockerFile) -t ${IMAGE_NAME}:$(IMAGE_VERSION) \
 		--build-arg NGINX_VERSION=${NGINX_VERSION} \
 		--platform linux/arm64 .
 
-tag-latest: ## tag latest
-	@docker tag ${IMAGE_NAME}:$(LATEST_VERSION) ${IMAGE_NAME}:latest
+docker-build-amd64-no-load: ## build docker amd64 image
+	@docker build --force-rm=true \
+		-f ./Dockerfile -t ${IMAGE_NAME}:$(IMAGE_VERSION) \
+		--build-arg NGINX_VERSION=${NGINX_VERSION} \
+		--platform linux/amd64 .
 
-push: ## push images to registry
-	@docker push docker.io/${IMAGE_NAME}:$(LATEST_VERSION)
+docker-tag-latest: ## tag latest
+	@docker tag ${IMAGE_NAME}:$(IMAGE_VERSION) ${IMAGE_NAME}:latest
+
+docker-push: ## push images to registry
+	@docker push docker.io/${IMAGE_NAME}:$(IMAGE_VERSION)
 	@docker push docker.io/${IMAGE_NAME}:latest

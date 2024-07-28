@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.27.0-1
+
+- [+] add multi-platform build
+- [+] add release-please and project.json
+
 ## 1.27.0-0
 
 - [+] updated dependencies:
