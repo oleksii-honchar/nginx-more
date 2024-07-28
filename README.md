@@ -51,10 +51,7 @@ localhost:9020/metrics # prometheus
 
 Check `Makefile` for more useful targets
 
-## How to deploy manually
+## How to reelase & deploy
 
-- before commit/merge changes to `main`, bump `latest-version.txt` version and describe changes in `CHANGELOG.md`
-- commit/merge changes to main
-- create tag = `latest-version.txt`, e.g. `v0.3.0`
-- `git push --tags`
-- build & push image: `make build && make push`
+- The "Release please" github action will automatically create release PR after merge to `main`
+- When new tag created, "Docker build-n-push" workflow will be triggered. It will build both `linux/amd64` and `linux/arm64` images and push them to the docker hub
