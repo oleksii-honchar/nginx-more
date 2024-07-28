@@ -67,7 +67,8 @@ docker-build-n-push: ## build docker image for linux/amd64,linux/arm64
 	@docker buildx build --builder docker-container \
 		--platform linux/amd64,linux/arm64 \
 		--force-rm=true --push \
-		-f $(dockerFile) -t ${IMAGE_NAME}:$(IMAGE_VERSION) \
+		-f $(dockerFile) \
+		-t ${IMAGE_NAME}:$(IMAGE_VERSION) -t ${IMAGE_NAME}:latest \
 		--build-arg NGINX_VERSION=${NGINX_VERSION} \
 		.
 
