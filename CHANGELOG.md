@@ -5,16 +5,8 @@
 
 ### Bug Fixes
 
-* wip ([dfd5c62](https://github.com/oleksii-honchar/nginx-more/commit/dfd5c6280841755c57cbac96328e9b65f321180d))
-* wip ([88fe005](https://github.com/oleksii-honchar/nginx-more/commit/88fe005f68170e02b9be7521004388c0a450e8da))
-* wip ([2a12730](https://github.com/oleksii-honchar/nginx-more/commit/2a12730418b54de59835621c476c34952724ecb9))
-* wip ([c762872](https://github.com/oleksii-honchar/nginx-more/commit/c7628729095ecb961fa717e5d803e4b2939675d8))
-* wip ([6314d90](https://github.com/oleksii-honchar/nginx-more/commit/6314d9067a3095d5f277dd343ad9e5cbf72ceb7d))
-* wip ([dfd797b](https://github.com/oleksii-honchar/nginx-more/commit/dfd797bba9c3ec6e2dc0c647b06434a77ee093d1))
-* wip ([e0b671b](https://github.com/oleksii-honchar/nginx-more/commit/e0b671bc7cdbb40ec696061925945f36b8e0f5ad))
-* wip ([7272d44](https://github.com/oleksii-honchar/nginx-more/commit/7272d44533a9c7d869da5c40e760bc8e1103aef2))
-* wip ([2698a4b](https://github.com/oleksii-honchar/nginx-more/commit/2698a4b9b6875a8a4d78c94dbcfde1df6340a748))
-* wip ([8dc1919](https://github.com/oleksii-honchar/nginx-more/commit/8dc1919abc3f8d8a7075720e5ebd2cb6cff459e2))
+* fix release-please custom strategy ([dfd5c62](https://github.com/oleksii-honchar/nginx-more/commit/dfd5c6280841755c57cbac96328e9b65f321180d))
+
 
 ## [1.0.2](https://github.com/oleksii-honchar/nginx-more/compare/v1.0.1...v1.0.2) (2024-07-28)
 
@@ -23,7 +15,7 @@
 
 * wip ([04550e3](https://github.com/oleksii-honchar/nginx-more/commit/04550e33bc6c16598dc8fa0e0404a5312cff5e08))
 
-## [1.28.0-1.0.0](https://github.com/oleksii-honchar/nginx-more/compare/v1.27.0-1.0.0...v1.28.0-1.0.0) (2024-07-28)
+## [1.0.0](https://github.com/oleksii-honchar/nginx-more/compare/v1.27.0-1.0.0...v1.28.0-1.0.0) (2024-07-28)
 
 
 ### Features
@@ -55,5 +47,3 @@
 * wip ([#15](https://github.com/oleksii-honchar/nginx-more/issues/15)) ([60e4070](https://github.com/oleksii-honchar/nginx-more/commit/60e4070b55734a3a645a2e89a19ccbfc5ec21924))
 * wip ([#17](https://github.com/oleksii-honchar/nginx-more/issues/17)) ([285003d](https://github.com/oleksii-honchar/nginx-more/commit/285003d7e62e9a9f529e43f57e67178138a83eb3))
 * wip ([#19](https://github.com/oleksii-honchar/nginx-more/issues/19)) ([7b841fc](https://github.com/oleksii-honchar/nginx-more/commit/7b841fc3cafe6f8f9954312df59d51843d771d4b))
-
-## Changelog

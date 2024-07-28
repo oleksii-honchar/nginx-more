@@ -20,5 +20,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - run: sudo snap install yq
+      - run: make create-docker-container-builder
       - run: make docker-build-n-push
       - run: docker logout
