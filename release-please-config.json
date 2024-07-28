@@ -1,0 +1,9 @@
+{
+  "extra-files": [
+    {
+      "type": "yaml",
+      "path": "project.yaml",
+      "jsonpath": "$.version"
+    }
+  ]
+}
