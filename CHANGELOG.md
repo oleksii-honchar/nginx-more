@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/oleksii-honchar/nginx-more/compare/v1.0.3...v1.0.4) (2024-07-28)
+
+
+### Bug Fixes
+
+* build wip ([5e3da47](https://github.com/oleksii-honchar/nginx-more/commit/5e3da47c04838cc11afe210d1b140c8c6a5f8c46))
+
 ## [1.0.3](https://github.com/oleksii-honchar/nginx-more/compare/v1.0.2...v1.0.3) (2024-07-28)
 
 
