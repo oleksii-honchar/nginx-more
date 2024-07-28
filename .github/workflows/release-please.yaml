@@ -18,5 +18,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
-          package-name: project.json
-          changelog-types: generic-json-updater
+          extra-files: project.json
