@@ -3,7 +3,7 @@ services:
     environment:
     - TZ=Europe/Madrid
     container_name: ${CONTAINER_NAME}
-    image: ${IMAGE_NAME}:${LATEST_VERSION}
+    image: ${IMAGE_NAME}:${IMAGE_VERSION}
     restart: unless-stopped
     ports:
       - 80:80

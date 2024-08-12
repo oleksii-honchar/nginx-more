@@ -8,10 +8,14 @@ BOLD_ON=\033[1m
 BOLD_OFF=\033[21m
 CLEAR=\033[2J
 
-PROJECT_VERSION := $(shell yq -r '.version' project.yaml)
-NGINX_VERSION := $(shell yq -r '.nginxVersion' project.yaml)
-IMAGE_NAME := $(shell yq -r '.name' project.yaml)
-IMAGE_VERSION := $(NGINX_VERSION)-$(PROJECT_VERSION)
+export PROJECT_VERSION=$(shell yq -r '.version' project.yaml)
+export CONTAINER_NAME=$(shell yq -r '.containerName' project.yaml)
+export NGINX_VERSION=$(shell yq -r '.nginxVersion' project.yaml)
+export IMAGE_NAME=$(shell yq -r '.name' project.yaml)
+export IMAGE_VERSION=$(NGINX_VERSION)-$(PROJECT_VERSION)
+
+dockerComposeFile = ./docker-compose.yaml
+dockerFile = ./Dockerfile
 
 ifneq (,$(wildcard ./.env))
 	include ./.env
@@ -28,25 +32,21 @@ help:
 check-project-env-vars:
 	@bash ./.devops/local/scripts/check-project-env-vars.sh
 
-logs: dockerComposeFile = ./docker-compose.yaml
+
 logs: ## docker logs
 	@docker compose -f $(dockerComposeFile) logs --follow
 
-log: dockerComposeFile = ./docker-compose.yaml
-log: ## docker log for svc=<docker service name>
+docker-log: ## docker log for svc=<docker service name>
 	@docker compose -f $(dockerComposeFile) logs --follow ${svc}
 
-up: dockerComposeFile = ./docker-compose.yaml
-up:  ## docker up, or svc=<svc-name>
+docker-up:  ## docker up, or svc=<svc-name>
 	@docker compose -f $(dockerComposeFile) up --build --remove-orphans -d ${svc}
 
-down: dockerComposeFile = ./docker-compose.yaml
-down:  ## docker down, or svc=<svc-name>
+docker-down:  ## docker down, or svc=<svc-name>
 	@docker compose -f $(dockerComposeFile) down ${svc}
 
 .ONESHELL:
-restart: dockerComposeFile = ./docker-compose.yaml
-restart:  ## restart all
+docker-restart:  ## restart all
 	@docker compose -f $(dockerComposeFile) down
 	@docker compose -f $(dockerComposeFile) up --build --remove-orphans -d
 	@docker compose -f $(dockerComposeFile) logs --follow
@@ -62,7 +62,6 @@ create-docker-container-builder:
 	@docker buildx create --use --name docker-container --driver docker-container
 	@docker buildx inspect docker-container --bootstrap
 
-docker-build-n-push: dockerFile = ./Dockerfile
 docker-build-n-push: ## build docker image for linux/amd64,linux/arm64
 	@docker buildx build --builder docker-container \
 		--platform linux/amd64,linux/arm64 \
@@ -72,7 +71,6 @@ docker-build-n-push: ## build docker image for linux/amd64,linux/arm64
 		--build-arg NGINX_VERSION=${NGINX_VERSION} \
 		.
 
-docker-build: dockerFile = ./Dockerfile
 docker-build: ## build docker image
 	@docker build --force-rm=true --load \
 		-f $(dockerFile) -t ${IMAGE_NAME}:$(IMAGE_VERSION) \
