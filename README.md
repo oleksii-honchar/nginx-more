@@ -30,16 +30,16 @@ Current build contains following configuration options ready to use:
 To start `nginx-more`:
 
   ```bash
-  make up
-  make logs # in json log format for easier integration with log processing backend
+  make docker-up
+  make docker-logs # in json log format for easier integration with log processing backend
   ```
 
 Then open `localhost:80` in browser to check it's working.
 
-To build an image:
+To build an image locally:
 
 ```bash
-make build
+make docker-build
 ```
 
 Extended metrics available at:
