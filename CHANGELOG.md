@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.6](https://github.com/oleksii-honchar/nginx-more/compare/v1.0.5...v1.0.6) (2024-08-12)
+
+
+### Bug Fixes
+
+* fix makefile env vars ([#27](https://github.com/oleksii-honchar/nginx-more/issues/27)) ([db1907f](https://github.com/oleksii-honchar/nginx-more/commit/db1907f26a4ea817cf978c05757e2a8f00964d53))
+
 ## [1.0.5](https://github.com/oleksii-honchar/nginx-more/compare/v1.0.4...v1.0.5) (2024-07-28)
 
 
