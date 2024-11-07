@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/oleksii-honchar/nginx-more/compare/v1.0.6...v1.1.0) (2024-11-07)
+
+
+### Features
+
+* add json logs ([#29](https://github.com/oleksii-honchar/nginx-more/issues/29)) ([f171a6b](https://github.com/oleksii-honchar/nginx-more/commit/f171a6bcb3533448087b873caebd0446fe367aa7))
+
 ## [1.0.6](https://github.com/oleksii-honchar/nginx-more/compare/v1.0.5...v1.0.6) (2024-08-12)
 
 
