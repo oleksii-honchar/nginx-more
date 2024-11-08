@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/oleksii-honchar/nginx-more/compare/v1.1.0...v1.2.0) (2024-11-08)
+
+
+### Features
+
+* update nginx to 1.27.2 ([#31](https://github.com/oleksii-honchar/nginx-more/issues/31)) ([5cb661d](https://github.com/oleksii-honchar/nginx-more/commit/5cb661dee58be6fa4a8d1d0da05a72d63387f6f2))
+
 ## [1.1.0](https://github.com/oleksii-honchar/nginx-more/compare/v1.0.6...v1.1.0) (2024-11-07)
 
 
